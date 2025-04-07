@@ -104,7 +104,27 @@ git remote -v
 ```bash
 git add . #添加内容进暂存区
 git commit -m "提交信息" #把暂存区内容存到本地仓库
-git push origin main #把本地仓库更改推送到远程仓库
+git push origin main #把本地仓库更改推送到远程仓库main分支
+```
+
+## 七、 新建分支
+| 优点 | 说明 |
+| --- | :---: |
+|✅ 避免冲突|每人开发自己的功能，互不干扰。|
+|✅ 更清晰 | 分支命名可以反映开发内容 |
+|✅ 易于管理 | 可以单独审核每个人的代码 |
+|✅ 回退方便	| 如果某个人的功能不稳定，可以只回滚或暂停该分支 |
+具体操作为：
+```bash
+git switch -c feature/mywork #创建并切换到新分支
+```
+查看是否成功：
+```bash
+git branch -vv
+```
+如果成功会有如下输出：
+```
+* feature/mywork  123abc [origin/feature/mywork] commit message
 ```
 ## 附加
 ### VsCode推送代码
@@ -120,5 +140,5 @@ git push origin main #把本地仓库更改推送到远程仓库
 待更新:  
 - [x] 基础推送
 - [X] SSH教学
-- [ ] 多人协作
+- [X] 多人协作
 - [ ] 版本回退
