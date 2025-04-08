@@ -6,7 +6,7 @@ PHOENIX嵌入式文档
 ## 指南
 1. [查看结构问题](find_assembly_problems.md)
 2. [走线规范](robot_wiring_guide.md)
-3. [Git教学](Use_Of_Git.md)
+3. [Git教学](use_of_git.md)
 4. [代码规范](code_standards.md)
 
 ## 欢迎补充
