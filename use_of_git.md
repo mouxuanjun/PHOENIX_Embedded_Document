@@ -113,7 +113,60 @@ git commit -m "提交信息" #把暂存区内容存到本地仓库
 git push origin main #把本地仓库更改推送到远程仓库main分支
 ```
 
-## 七、 新建分支
+## 七、回退版本
+### 回退到上一个版本
+- 保留代码修改（常用），保留代码和暂存区
+```bash
+git reset --soft HEAD^
+```
+- 丢弃修改（常用），丢弃暂存区修改，保留代码
+```bash
+git reset --mixed HEAD^
+```
+- 彻底删除（危险⚠️），回退commit+暂存+修改全清除
+```bash
+git reset --hard HEAD^
+```
+### 回退到指定版本
+1. 查看commit记录
+```bash
+git log
+```
+会看到如下输出：
+```bash
+commit a1b2c3d4e5f6g7h8... #复制这段
+Author: xxx
+Date: ...
+Message: 修复登录问题
+```
+2. 回退
+```bash
+git reset --soft a1b2c3d
+```
+或
+```bash
+git reset --mixed a1b2c3d
+```
+或
+```bash
+git reset --hard a1b2c3d
+```
+### 撤销回退
+1. 查看reflog
+```bash
+git reflog
+```
+会列出所有的操作记录
+```bash
+a1b2c3d HEAD@{0}: reset: moving to HEAD^
+e5f6g7h HEAD@{1}: commit: 修复登录问题
+```
+2. 滚到指定操作记录
+```bash
+git reset --hard e5f6g7h
+```
+
+## 八、 新建分支
 | 优点 | 说明 |
 | --- | :---: |
 |✅ 避免冲突|每人开发自己的功能，互不干扰。|
@@ -132,7 +185,7 @@ git branch -vv
 ```
 * feature/mywork  123abc [origin/feature/mywork] commit message
 ```
-## 八、多人协作开发
+## 九、多人协作开发
 基本规定：
 - main ：主分支，保证是稳定版本
 - dev ：开发分支，用于开发新的功能
