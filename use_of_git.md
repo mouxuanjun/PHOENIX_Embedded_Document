@@ -77,11 +77,17 @@ git branch -M main  # 将默认分支改为 main（可选，好习惯）
 ssh-keygen -t rsa -C "你的GitHub邮箱"
 ```
 一直按回车，直到生成完成   
-2. 添加SSH Key到Github   
-打开 id_rsa.pub，复制内容
-进入 GitHub Settings > SSH and GPG keys > New SSH key
-粘贴公钥并保存
-3. 测试是否成功
+2. 添加SSH Key
+打开公钥文件，粘贴公钥并保存
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+3. 把公钥添加到github中   
+    1. 点击右上角头像 → Settings
+    2. 左侧栏点击 SSH and GPG keys
+    3. 点击 New SSH key
+    4. 粘贴公钥内容
+4. 测试是否成功
 ```bash
 ssh -T git@github.com
 ```
@@ -89,7 +95,7 @@ ssh -T git@github.com
 ```
 Hi 用户名! You've successfully authenticated, but GitHub does not provide shell access.
 ```
-4. 链接本地仓库和Github仓库
+5. 链接本地仓库和Github仓库
 ```bash
 git remote add origin 你的GitHub仓库地址（ssh地址）
 ```
@@ -126,6 +132,41 @@ git branch -vv
 ```
 * feature/mywork  123abc [origin/feature/mywork] commit message
 ```
+## 八、多人协作开发
+基本规定：
+- main ：主分支，保证是稳定版本
+- dev ：开发分支，用于开发新的功能
+- feature/xxxx ：功能分支，用于开发新的功能
+- hotfix/xxxx ：bug修复分支，用于修复bug
+
+1. 克隆主仓库
+```bash
+git clone 仓库地址
+```
+2. 切换到dev分支
+```bash
+git checkout dev #切换到dev分支
+git pull origin dev #拉取远程dev分支到本地dev分支
+```
+3. 创建自己的功能分支
+```bash
+git switch -c feature/xxxx #创建并切换到新分支
+```
+4. 开发自己的功能，并提交代码到feature/xxxx分支,推送到远端分支
+5. 合并到dev分支（由管理员/审核人执行）  
+可以在远程仓库直接操作或在本地合并：
+```bash
+git checkout dev #切换到dev分支
+git pulll origin dev #拉取远程dev分支到本地dev分支
+git merge feature/xxxx #合并feature/xxxx分支到dev分支
+git push origin dev #把dev分支推送到远程dev分支
+```
+6. 删除已完成分支
+```bash
+git branch -d feature/xxxx #删除本地分支
+git push origin --delete feature/xxxx #删除远端分支
+```
+
 ## 附加
 ### VsCode推送代码
 图形化界面，易于操作，原理同终端。
