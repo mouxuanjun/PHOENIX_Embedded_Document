@@ -11,7 +11,7 @@ PHOENIX嵌入式文档
 
 ## 欢迎补充
 **如果你觉得有什么地方可以补充或说明有误，欢迎补充**   
-联系邮箱：[1583164119@qq.com](https://mail.qq.com)
+联系邮箱：[hewenxuan040923@gmail.com](https://mail.google.com/mail)
 
 ## 许可证
 
