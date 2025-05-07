@@ -210,7 +210,7 @@ git switch -c feature/xxxx #创建并切换到新分支
 可以在远程仓库直接操作或在本地合并：
 ```bash
 git checkout dev #切换到dev分支
-git pulll origin dev #拉取远程dev分支到本地dev分支
+git pull origin dev #拉取远程dev分支到本地dev分支
 git merge feature/xxxx #合并feature/xxxx分支到dev分支
 git push origin dev #把dev分支推送到远程dev分支
 ```
@@ -230,9 +230,4 @@ git push origin --delete feature/xxxx #删除远端分支
 之前教的虽然够用，但其实每次推送提交的信息格式都不是很标准，用命令行操作过于复杂，可以使用VsCode的“git-commit-pligin”插件实现，具体过程不在赘述，请自行查阅插件说明
 
 ## 结束总结
-以上内容只是Git的最基础的使用，也只是Git的冰山一角，像设计多人协作开发等功能才是Git的精髓，Git还有很多很多功能没介绍到，大家可以自己去发现，之后发现好用的功能会不定时更新此文档   
-待更新:  
-- [x] 基础推送
-- [X] SSH教学
-- [X] 多人协作
-- [ ] 版本回退
+以上内容只是Git的最基础的使用，也只是Git的冰山一角，Git还有很多很多功能没介绍到，大家可以自己去发现，之后发现好用的功能会不定时更新此文档   
